@@ -1,0 +1,24 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "学生管理",
+  "main": "a.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-packager . myClient:学生管理系统 --win:Windows --out../myClient:C:/Users/风/Desktop --arch=x64 --app-veersion=1.0.0 --electron-version=2.0.0"
+  },
+  "author": "范程 马新航 雷金鹏",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fc459659281/Student-Management-System.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/fc459659281/Student-Management-System/issues"
+  },
+  "homepage": "https://github.com/fc459659281/Student-Management-System#readme"
+}

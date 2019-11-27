@@ -1,0 +1,101 @@
+.foot{
+    height: 50px;
+    line-height: 50px;
+}
+.foot #x{
+    width: 70px;
+    font-size: 20px;
+}
+.text-center{
+    background-color:white;
+}
+
+.header{
+    background-color: gray;
+    height: 80px;
+    font-size: 20px;
+    line-height: 80px;
+    text-align: center;
+    color:black;  
+}
+.left{
+    background-color: paleturquoise;
+    height: 900px;
+    width: 160px;
+    float: left;
+}
+.right{   
+    height: 900px;
+    width: 1200px;
+    float: left;
+    margin: 100px  0px 0px 0
+}
+.header .a_1{
+    color: aliceblue
+}
+.a_1:link{
+    text-decoration: none;
+    color: white;
+    font-family:"Microsoft YaHei"
+}
+.a_1:hover{
+    font-size: 23px;
+    color:yellowgreen;
+
+}
+
+.t_1{
+    border-radius:25px;
+    width:200px;
+    height:50px;
+    font-size: 16px;
+    color:black;
+}
+
+.l_1{
+    font-size: 16px;
+
+}
+
+.b_1{
+    border-radius: 10px;
+    
+    margin: 0;
+    padding: 0px;
+    width:150px;
+    height: 50px;
+    background-color: midnightblue;
+    color:white;
+}
+.b_1:hover{
+
+    background-color: blue;
+}
+
+.c_1{
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+    margin: 250px  0px 0px 0;
+
+}
+
+.a_1_ul {
+	text-align: center;
+	position: absolute;
+	list-style: none;
+    color: black;
+    display: none;
+    margin: 0px  0px 0px 680px;
+}
+.a_1_ul li{
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid black;
+}
+.header:hover .a_1_ul{
+    display: block;
+}
+
+

@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>义工岗</title> 
+        <script src="jquery.js"></script>
+        <script src="IP.js"></script>
+        <link rel="stylesheet" href="student.css">
+    </head>
+    <div class="header" type="none">
+        <a href="shouye.html">返回首页</a>
+       </div>
+    <body>
+                <style type="text/css">
+                .scrollDiv{width:291px;height:323px;min-height:25px;overflow:hidden}
+                .huodisplay{display:none;}
+                </style>
+        <div class="d_1">
+            <img src="Q0.png" height ="50px" width="50px" style="float: left" class="i_1">
+           <div class="d_2">
+               <p>义工安排平台</p>
+           </div>
+        </div>
+        
+        
+            <table   class="table_one" border="2" >
+			<tr>                
+                <th>活动</th>
+                <th>时间</th>
+                <th>地点</th>
+                <th>预约容量</th>
+                <th>预约余量</th>
+                <th>选择预约</th>
+			</tr>
+			<tr>
+		
+                <td>打扫图书馆</td>
+                <td>2019.3.5 14:00-16:00</td>
+                <td>学校图书馆</td>
+                <td>10</td>
+                <td><a href="#" id="余量1">点击查看余量</a></td>
+                <th><input type="radio" value="" name="xuanze" id="1" />
+                </th>
+			</tr>
+			<tr>
+                <td>食堂义工</td>
+                <td>2019.4.2 10:00-12:00</td>
+                <td>学校新食堂</td>
+                <td>15</td>
+                <td><a href="#" id="余量2">点击查看余量</a></td>
+                <th><input type="radio" value="" name="xuanze" id="2" /></th>
+			</tr>
+			<tr>
+		
+                <td>校园大扫除</td>
+                <td>2019.5.18 17:00-19:00</td>
+                <td>临潼校区</td>
+                <td>12</td>
+                <td><a href="#" id="余量3">点击查看余量</a></td>
+                <th><input type="radio" value="" name="xuanze" id="3"/></th>
+            </tr>
+            
+        </table>
+       <div align="center">
+        <input class="b_1" type="button" id="submit" value="提交"></input>
+       </div>
+    </body>
+    <script>
+
+    var number=0;
+    $("#1").click(async function () {
+        alert("您已选择活动：打扫图书馆")
+        number=1;
+    });
+    $("#2").click(async function () {
+        alert("您已选择义工：食堂义工")
+        number=2;
+    });
+    $("#3").click(async function () {
+        alert("您已选择活动：校园大扫除")
+        number=3;
+    });
+    $("#submit").click(function () {
+        if (number== 0) {
+            alert("预约未选择,请选择你的活动");
+        } else {
+            console.log($("#3").val())
+            $.post(IP+'yigong', {
+                num: number
+            }).then(res => {
+                alert(res);
+                if(res=="预约成功"){
+                    window.location.href =IP1+"shouye.html";
+                }
+            })
+        }
+    });$("#余量1").click(async function () {
+        $.post(IP+"余量4", {
+        }).then(res => {
+            alert(res);
+        })
+    })
+    $("#余量2").click(async function () {
+        $.post(IP+"余量5", {
+        }).then(res => {
+            alert(res);
+        })
+    })
+    $("#余量3").click(async function () {
+        $.post(IP+"余量6", {
+        }).then(res => {
+            alert(res);
+        })
+    })
+
+    </script>
+</html>

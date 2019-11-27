@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>管理员登录界面</title>
+  <script src="jquery.js"></script>
+  <script src="IP.js"></script>
+  <link rel="stylesheet" href="student.css">
+</head>
+
+<body class="text-center">
+  <div class="header" type="none">
+    <a href="#" class="a_1">管理员登录&nbsp&nbsp</a>
+  </div>
+  <center class="c_1">
+    <div style="padding-top: 100px">
+      <form>
+        <input class="t_1" type="text" id="administrators_num" placeholder="请输入您的管理员账号">
+        <br>
+        <input class="t_1" type="password" id="administrators_pass" placeholder="请输入您的密码">
+        <br>
+        <input class="b_1" type="button" id="administratorslogin" value="登录"></input>
+      </form>
+    </div>
+  </center>
+</body>
+<script>
+  $("#administratorslogin").click(async function (e) {
+    console.log($('#administrators_num').val())
+    if (!$('#administrators_num').val() || !$('#administrators_pass').val()) {
+      alert("管理员账号或密码不能为空");
+    }
+    $.post(IP+"administratorslogin", {
+      administrators_number: $('#administrators_num').val(),
+      administrators_password: $('#administrators_pass').val(),
+    }).then(res=>{
+      console.log(res)
+      alert(res);
+      if (res == '登录成功') {
+        window.location.href = IP1+'am.html';
+      }
+    }, err => {
+      console.log(err);
+    })
+  })
+</script>
+
+</html>

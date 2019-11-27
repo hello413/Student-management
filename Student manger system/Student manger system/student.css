@@ -1,0 +1,118 @@
+
+.baby{
+    background-color:rgb(177, 243, 253)
+}
+
+.header{
+    background-color: rgb(207, 232, 243);
+    height: 150px;
+    font-size: 40px;
+    line-height: 150px;
+    text-align: center;
+    color:black;
+    margin-bottom: 5px; 
+}
+
+.a_1:link{
+    text-decoration: none;
+    color: black;
+}
+.a_1:hover{
+    font-size: 45px;
+    color:rgb(89, 204, 233);
+
+}
+
+.a_1:visited{
+    color:black;
+}
+
+.t_1{
+    border-radius:25px;
+    width:200px;
+    height:50px;
+    font-size: 16px;
+    color:black;
+}
+
+.l_1{
+    font-size: 16px;
+
+}
+
+.b_1{
+    border-radius: 10px;
+    
+    margin: 0;
+    padding: 0px;
+    width:150px;
+    height: 50px;
+    background-color: midnightblue;
+    color:white;
+}
+.b_1:hover{
+
+    background-color: blue;
+}
+
+.c_2{
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+
+}
+
+.xin_d_1{
+    width:455px;
+    height:800px;
+    background-color: darkseagreen;
+    float: left;
+    margin-right: 5px;
+}
+
+.d_1{
+    background-color: lightblue;
+    height: 50px;
+    line-height:50px;
+}
+
+.d_1 .d_2{
+    float: left;
+    height:50px;
+    color:white;
+    text-align: center;
+    line-height: 50px
+}
+
+.table_one{
+    width: 1500px;
+    border:1px soild black;
+
+    tr:nth-child(odd){
+    background-color:black;
+    }
+}
+
+
+.i_2{
+    float: right;
+    border-radius: 10px;
+    
+    margin: 0;
+    padding: 0px;
+    width:150px;
+    height: 50px;
+    background-color: midnightblue;
+    color:white;
+}
+
+.i_2:hover{
+
+    background-color: blue;
+}
+tr{
+    text-align: center
+}
+tr:nth-child(even){
+    background-color: wheat
+}

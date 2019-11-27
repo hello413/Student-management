@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="student1.css">
+  <script src="IP.js"></script>
+  <script src="jquery.js"></script>
+</head>
+<body align="center">
+    <div class="header"><a href="shouye.html">返回首页</a></div>
+    <div id="main">
+      <div class="side1 side_1"><h1 class="tt_1">机房预约：</h1><br><br><p id="jifang" style="font-size: 35px;"></p></div>
+      
+      <div class="side1 side_2"><h1 class="tt_1">心理预约：</h1><br><br><p id="xinli" style="font-size: 35px;"></p></div>
+      <div class="side1 side_3"><h1 class="tt_1">义工预约：</h1><br><br><p id="yigong" style="font-size: 35px;"></p></div>
+      <div class="side1 side_4"><h1 class="tt_1">教室预约：</h1><br><br><p id="jiaoshi" style="font-size: 35px;"></p></div>
+    </div>
+    <div id="footer"><input type="button" id ="chaxun"value="查询" id=chaxun /></div>
+    
+</body>
+<script>
+ $('#chaxun').click(async function(e){
+   var a;
+  $.post(IP + 'my', {
+}).then(res => {
+  a=eval(res)
+  console.log(a[0])
+  
+  var p = document.getElementById('jifang');
+   var b=JSON.stringify(a)
+   var b1=eval(b)
+  p.innerHTML = b1[0].机房预约
+  var p1 = document.getElementById('xinli');
+   var c1=eval(b)
+  p1.innerHTML = c1[0].心理预约
+  var p2 = document.getElementById('yigong');
+   var d1=eval(b)
+  p2.innerHTML = d1[0].活动预约
+  var p3 = document.getElementById('jiaoshi');
+   var a1=eval(b)
+  p3.innerHTML = a1[0].教室预约
+  
+}, err => {
+  console.log(err);
+})
+})
+
+</script>
+</html>

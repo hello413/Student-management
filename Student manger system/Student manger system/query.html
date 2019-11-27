@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>查询学生信息</title>
+  <script src="jquery.js"></script>
+  <script src="IP.js"></script>
+  <link rel="stylesheet" href="am.css">
+</head>
+
+<body class="text-center" align="center">
+  <div class="header" type="none">
+    <a href="am.html" class="a_1">返回管理员首页</a>
+  </div>
+  <img src="11.jpg" width=100% height="50">
+  <table border="1" width=100%>
+    <tr>
+      <th>姓名</th>
+      <th>学号</th>
+      <th>专业</th>
+      <th>班级</th>
+      <th>性别</th>
+      <th>出生日期</th>
+      <th>联系电话</th>
+      <th>参加比赛</th>
+      <th>所得奖项</th>
+    </tr>
+    <tr>
+      
+      <td><p id="name"></p></td>
+      <td><p id="sno"></p></td>
+      <td><p id="voc"></p></td>
+      <td><p id="class"></p></td>
+      <td><p id="sex"></p></td>
+      <td><p id="birthdate"></p></td>
+      <td><p id="tel"></p></td>
+      <td><p id="game"></p></td>
+      <td><p id="prize"></p></td>
+    </tr>
+  </table>
+  <div class="foot">
+    <br />
+    <br />
+    <input type="button" value="查询" id="x"/>
+  </div>
+</body>
+<script>
+  var a;
+  $('#x').click(async function(e){
+    var sno= prompt("请输入你要查询的学生学号:","");
+    $.post(IP+'query',{
+      学号:sno
+}).then(res=>{
+  if(!res){
+    alert('查询的学生不存在,请核对后输入')
+  }else{
+    a=eval(res)
+    var xingming=a[0].姓名
+    var xuehao=a[0].学号
+    var voc=a[0].专业
+    var class1=a[0].班级
+    var xingbie=a[0].性别
+    var birthdate=a[0].出生日期
+    var tel=a[0].联系电话
+    var game=a[0].竞赛信息
+    var prize=a[0].获奖情况
+
+  var p = document.getElementById('name');
+  p.innerHTML = xingming
+  var p1 = document.getElementById('sno');
+  p1.innerHTML = xuehao
+  var p2 = document.getElementById('voc');
+  p2.innerHTML = voc
+  var p3 = document.getElementById('class');
+  p3.innerHTML = class1
+  var p4 = document.getElementById('sex');
+  p4.innerHTML = xingbie
+  var p5 = document.getElementById('birthdate');
+  p5.innerHTML = birthdate
+  var p6 = document.getElementById('tel');
+  p6.innerHTML = tel
+  var p7 = document.getElementById('game');
+  p7.innerHTML = game
+  var p8 = document.getElementById('prize');
+  p8.innerHTML = prize
+  }
+ 
+   })
+
+  })
+ 
+</script>
+</html>

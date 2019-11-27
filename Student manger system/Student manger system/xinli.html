@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>心理辅导</title>
+    <script src="jquery.js"></script>
+    <script src="IP.js"></script>
+    <link rel="stylesheet" href="student.css">
+</head>
+
+<body>
+    <div class="header" type="none">
+        <a href="shouye.html">返回首页</a>
+    </div>
+    <div class="d_1">
+        <img src="Q0.png" height="50px" width="50px" style="float: left" class="i_1">
+        <div class="d_2">
+            <p>心理咨询预约</p>
+        </div>
+    </div>
+
+    <table class="table_one" border="1">
+        <tr>
+            <th>辅导老师</th>
+            <th>心理辅导时间</th>
+            <th>辅导地点</th>
+            <th>预约容量</th>
+            <th>预约余量</th>
+            <th>选择预约</th>
+        </tr>
+        <tr>
+
+            <td>张三</td>
+            <td>每周三14:00-16:00</td>
+            <td>1号心理辅导室</td>
+            <td>5</td>
+            <td><a id="余量1" href="#">点击查看余量</a></td>
+            <th><input type="radio" value="" name="xuanze" id="1" />
+            </th>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>每周五17:00-19:00</td>
+            <td>2号心理辅导室</td>
+            <td>5</td>
+            <td><a id="余量2" href="#">点击查看余量</a></td>
+            <th><input type="radio"  name="xuanze" id="2" /></th>
+        </tr>
+        <tr>
+
+            <td>王二</td>
+            <td>每周一10:00-12:00</td>
+            <td>3号心理辅导室</td>
+            <td>5</td>
+            <td><a id="余量3" href="#">点击查看余量</a></td>
+            <th><input type="radio" value="" name="xuanze" id="3" /></th>
+        </tr>
+
+    </table>
+    <div align="center">
+        <input class="b_1" type="button" id="submit" value="提交"></input>
+    </div>
+</body>
+<script>
+    var number=0;
+    $("#1").click(async function () {
+        alert("您已选择张三老师的心理辅导")
+        number=1;
+    });
+    $("#2").click(async function () {
+        alert("您已选择李四老师的心理辅导")
+        number=2;
+    });
+    $("#3").click(async function () {
+        alert("您已选择王二老师的心理辅导")
+        number=3;
+    });
+    $("#submit").click(function () {
+
+        if (number== 0) {
+            alert("预约未选择,请选择你的心理辅导预约");
+        } else {
+            console.log($("#3").val())
+            $.post(IP+'submit', {
+                num: number
+            }).then(res => {
+                alert(res);
+                if(res=="预约成功"){
+                    window.location.href = IP1+"shouye.html";
+                }
+            })
+        }
+    });$("#余量1").click(async function () {
+        $.post(IP+"余量1", {
+        }).then(res => {
+            alert(res);
+        })
+    })
+    $("#余量2").click(async function () {
+        $.post(IP+"余量2", {
+        }).then(res => {
+            alert(res);
+        })
+    })
+    $("#余量3").click(async function () {
+        $.post(IP+"余量3", {
+        }).then(res => {
+            alert(res);
+        })
+    })
+</script>
+
+</html>

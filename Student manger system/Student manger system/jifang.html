@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>机房预约</title>
+    <script src="jquery.js"></script>
+    <script src="IP.js"></script>
+    <link rel="stylesheet" href="student.css">
+</head>
+
+<body>
+    <div class="header" type="none">
+     <a href="shouye.html">返回首页</a>
+    </div>
+    <div class="d_1">
+        <img src="Q0.png" height="50px" width="50px" style="float: left" class="i_1">
+        <div class="d_2">
+            <p>机房预约</p>
+        </div>
+    </div>
+
+    <table class="table_one" border="1">
+        <tr>
+            <th>机房名称</th>
+            <th>机房时间</th>
+            <th>机房地点</th>
+            <th>预约容量</th>
+            <th>预约余量</th>
+            <th>选择预约</th>
+        </tr>
+        <tr>
+
+            <td>1号机房</td>
+            <td>2019.4.9 8:00-10:00</td>
+            <td>7号楼</td>
+            <td>10</td>
+            <td><a id="余量1" href="#">点击查看余量</a></td>
+            <th><input type="radio" value="" name="xuanze" id="1" />
+            </th>
+        </tr>
+        <tr>
+            <td>2号机房</td>
+            <td>2019.6.2 14:00-16:00</td>
+            <td>7号楼</td>
+            <td>9</td>
+            <td><a id="余量2" href="#">点击查看余量</a></td>
+            <th><input type="radio"  name="xuanze" id="2" /></th>
+        </tr>
+        <tr>
+
+            <td>3号机房</td>
+            <td>2019.4.29 9:00-11:00</td>
+            <td>7号楼</td>
+            <td>13</td>
+            <td><a id="余量3" href="#">点击查看余量</a></td>
+            <th><input type="radio" value="" name="xuanze" id="3" /></th>
+        </tr>
+
+    </table>
+    <div align="center">
+        <input class="b_1" type="button" id="submit" value="提交"></input>
+    </div>
+    </body>
+    <script>
+
+        var number=0;
+$("#1").click(async function () {
+        alert("您已选择1号机房")
+        number=1;
+    });
+    $("#2").click(async function () {
+        alert("您已选择2号机房")
+        number=2;
+    });
+    $("#3").click(async function () {
+        alert("您已选择3号机房")
+        number=3;
+    });
+    $("#submit").click(function () {
+
+        if (number== 0) {
+            alert("预约未选择,请选择你要预约的机房");
+        } else {
+            $.post(IP+'jifang', {
+                num: number
+            }).then(res => {
+                alert(res);
+                if(res=="预约成功"){
+                    window.location.href = IP1+"shouye.html";
+                }
+            })
+        }
+    });$("#余量1").click(async function () {
+        $.post(IP+"余量7", {
+        }).then(res => {
+            alert(res);
+        })
+    })
+    $("#余量2").click(async function () {
+        $.post(IP+"余量8", {
+        }).then(res => {
+            alert(res);
+        })
+    })
+    $("#余量3").click(async function () {
+        $.post(IP+"余量9", {
+        }).then(res => {
+            alert(res);
+        })
+    })
+    </script>
+</html>

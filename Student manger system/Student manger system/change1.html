@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>修改学生信息</title>
+        <script src="jquery.js"></script>
+        <script src="IP.js"></script>
+        <link rel="stylesheet" href="am.css">
+    </head>
+
+    <body class="text-center">
+        <div class="header" type="none">
+            <a href="am.html" class="a_1" >返回管理员主页</a>
+
+            </a>  
+        </div>
+        <img src="11.jpg" width=100% height="50">
+        <div align="center">
+            <form>
+                <br />
+                <br />
+                请输入要修改的学号：<input type="text" name="alsno" id="alsno" />
+                <br />
+                <br />
+                请输入要修改的姓名：<input type="text" name="alname" id="alname" />
+                <br />
+                <br />
+                
+            </form>
+            <input type="button" value="确定" id="alert"/>&nbsp&nbsp&nbsp&nbsp
+                <input type="reset" value="取消" />
+        </div>
+  </body>
+  <script>
+    $("#alert").click(async function (e) {
+    if(!$('#alsno')||!$('#alname')){
+        alert("学号或姓名不能为空")
+    }else{
+     $.post(IP+'alert', {
+       学号: $('#alsno').val(),
+       姓名: $('#alname').val(),
+     }).then(res=>{
+       alert(res)
+       if (res =='学生信息校验成功，正在跳转到修改页面') {
+ 
+         window.location.href = IP1+"change.html";
+       }
+     }, err=>{
+       console.log(err);
+     })
+ }
+    })
+   </script>
+</html>

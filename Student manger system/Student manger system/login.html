@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>学生管理系统</title>
+  <script src="jquery.js"></script>
+  <script src="IP.js"></script>
+  <link rel="stylesheet" href="student.css">
+</head>
+
+<body class="text-center">
+  <div class="header" type="none">
+
+  </div>
+  <center class="c_1">
+    <div style="padding-top: 50px">
+      <form>
+        <img src="hui.jpg" alt="" width="122px" height="92px">
+        <h2 class="h_1">学生管理系统</h2>
+        <input class="t_1" type="text" id="user" placeholder="您的学生号">
+        <br>
+        <br>
+        <input class="t_1" type="password" id="pass" placeholder="请输入您的密码">
+        <br>
+        <br>
+        <br>
+        <input class="b_1" type="button" id="login" value="登录"></input>
+
+      </form>
+      <div class="c_2">
+        <a href="reg.html">点击注册</a>
+        <a href="amlogin.html">管理员登录</a>
+      </div>
+    </div>
+  </center>
+</body>
+<script>
+  $("#login").click(async function (e) {
+    if (!$('#user').val() || !$('#pass').val()) {
+      alert("学号或密码不能为空");
+    } else {
+      $.post(IP + 'login', {
+        username: $('#user').val(),
+        password: $('#pass').val(),
+      }).then(res => {
+        if(res==""){
+          alert("学号密码错误,请重新输入")
+        }else{
+        var a = eval(res)
+        var b = res
+        console.log(a[0])
+        if (typeof (b) != String) {
+          alert("欢迎你," + a[0].姓名 + "同学")
+          window.location.href = IP1 + "shouye.html";
+        }
+      }
+      }, err => {
+        console.log(err);
+      })
+    }
+  })
+
+</script>
+
+</html>
