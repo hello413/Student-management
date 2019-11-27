@@ -14,10 +14,10 @@
 </body>
 <script>
     $('#button').click(function(){
-        $.get(('http://127.0.0.1:8080/test'),{
+        $.post(('http://127.0.0.1:8080/test'),{
         name:$('#start').val()
     }).then(res => {
-            alert(res)
+            alert(res);
     })
 })
 </script>
